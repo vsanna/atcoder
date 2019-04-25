@@ -53,7 +53,7 @@ bool isPrime(T num)
 	return true;
 }
 
-// O(N)
+// 素数リストを作る: O(N)
 template <typename T>
 std::vector<T> createPrimeList(T max)
 {
@@ -69,12 +69,10 @@ std::vector<T> createPrimeList(T max)
 		{
 			for (int j = i + 1; j <= max; j++)
 			{
-				cout << "before: " << table[j] << endl;
 				if (table[j] && (j % i == 0))
 				{
 					table[j] = false;
 				}
-				cout << "after: " << table[j] << endl;
 			}
 		}
 	}
@@ -82,7 +80,6 @@ std::vector<T> createPrimeList(T max)
 	std::vector<T> result;
 	for (int i = 2; i <= max; i++)
 	{
-		cout << "table: " << i << " => " << table[i] << endl;
 		if (table[i])
 			result.push_back(i);
 	}
@@ -140,8 +137,9 @@ vector<T> divisors(T num)
 	return ans;
 }
 
+// 素因数分解. 1を含まないので約数列挙と微妙にロジック異なる
 template <typename T>
-std::unordered_map<int, int> primeFactorize(std::vector<ll> &primes, T num)
+std::unordered_map<int, int> primeFactorize(std::vector<T> &primes, T num)
 {
 	std::unordered_map<int, int> mp;
 
@@ -153,9 +151,12 @@ std::unordered_map<int, int> primeFactorize(std::vector<ll> &primes, T num)
 	for (int i = 0; i < primes.size(); i++)
 	{
 		ll p = primes[i];
+		if (p > num)
+			break;
+
 		T tmp = num;
 
-		while (num % p == 0)
+		while (tmp % p == 0)
 		{
 			mp[p]++;
 			tmp = tmp / p;
@@ -165,22 +166,59 @@ std::unordered_map<int, int> primeFactorize(std::vector<ll> &primes, T num)
 	return mp;
 }
 
-int main()
+// 1からnumまでのxor累積
+ll factorialXOR(ll num)
 {
-	cout << gcd(15, 13) << endl;
-	cout << lcm(15, 12) << endl;
-	for (int i = 0; i <= 20; i++)
+	if (num <= 3)
 	{
-		cout << "i: " << i << " ans: " << countDivisor(i) << endl;
-		for (int j = 0; j < divisors(i).size(); j++)
-			cout << divisors(i)[j] << ", ";
-		cout << endl;
+		ll ans = 1;
+		for (int i = 2; i <= num; i++)
+		{
+			ans = ans ^ i;
+		}
+		return ans;
 	}
 
-	auto primes = createPrimeList(100);
-	cout << "size: " << primes.size() << endl;
-	for (int i = 0; i < primes.size(); i++)
+	ll maxBy4 = 0;
+	if (num % 4 == 0)
+		maxBy4 = num - 1;
+	if (num % 4 == 1)
+		maxBy4 = num - 2;
+	if (num % 4 == 2)
+		maxBy4 = num - 3;
+	if (num % 4 == 3)
+		maxBy4 = num;
+
+	ll ans = maxBy4;
+	while (maxBy4 < num)
 	{
-		cout << "prime: " << primes[i] << endl;
+		maxBy4++;
+		ans = ans ^ maxBy4;
+	}
+
+	return ans;
+}
+
+int main()
+{
+	// cout << gcd(15, 13) << endl;
+	// cout << lcm(15, 12) << endl;
+
+	// for (int i = 0; i <= 20; i++)
+	// {
+	// 	cout << "i: " << i << " ans: " << countDivisor(i) << endl;
+	// 	for (int j = 0; j < divisors(i).size(); j++)
+	// 		cout << divisors(i)[j] << ", ";
+	// 	cout << endl;
+	// }
+
+	vector<int> primes = createPrimeList(10000);
+	auto primeFactors = primeFactorize(primes, 120);
+
+	cout << primeFactors.size() << endl;
+
+	for (auto kv : primeFactors)
+	{
+		cout << kv.first << " => " << kv.second << endl;
 	}
 }

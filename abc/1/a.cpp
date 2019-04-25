@@ -10,14 +10,25 @@
 #include <utility>
 #include <bitset>
 #include <queue>
-#include <limits>
-#include <list>
 
 using namespace std;
+
 using ll = long long;
-const ll INF = numeric_limits<ll>::max();
-const int MOD = 1000000007;
+
+template <typename T>
+inline bool chmax(T &a, T b)
+{
+	if (a < b)
+	{
+		a = b;
+		return 1;
+	}
+	return 0;
+}
 
 int main()
 {
+	int h1, h2;
+	cin >> h1 >> h2;
+	cout << (h1 - h2) << endl;
 }

@@ -10,13 +10,10 @@
 #include <utility>
 #include <bitset>
 #include <queue>
-#include <limits>
-#include <list>
 
 using namespace std;
+
 using ll = long long;
-const ll INF = numeric_limits<ll>::max();
-const int MOD = 1000000007;
 
 int main()
 {

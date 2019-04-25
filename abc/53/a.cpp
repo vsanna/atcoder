@@ -10,14 +10,27 @@
 #include <utility>
 #include <bitset>
 #include <queue>
-#include <limits>
-#include <list>
 
 using namespace std;
+
 using ll = long long;
-const ll INF = numeric_limits<ll>::max();
-const int MOD = 1000000007;
+
+template <typename T>
+inline bool chmax(T &a, T b)
+{
+	if (a < b)
+	{
+		a = b;
+		return 1;
+	}
+	return 0;
+}
 
 int main()
 {
+	int x;
+	cin >> x;
+
+	string klass = x < 1200 ? "ABC" : "ARC";
+	cout << klass << endl;
 }

@@ -10,14 +10,21 @@
 #include <utility>
 #include <bitset>
 #include <queue>
-#include <limits>
-#include <list>
 
 using namespace std;
+
 using ll = long long;
-const ll INF = numeric_limits<ll>::max();
-const int MOD = 1000000007;
 
 int main()
 {
+	string s;
+	cin >> s;
+	int red = 0;
+	int blue = 0;
+	for (int i = 1; i <= s.length(); i++)
+	{
+		s[i - 1] == '0' ? red++ : blue++;
+	}
+
+	cout << (min(red, blue) * 2) << endl;
 }

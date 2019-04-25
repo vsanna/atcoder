@@ -10,14 +10,27 @@
 #include <utility>
 #include <bitset>
 #include <queue>
-#include <limits>
-#include <list>
 
 using namespace std;
+
 using ll = long long;
-const ll INF = numeric_limits<ll>::max();
-const int MOD = 1000000007;
 
 int main()
 {
+	int n, a, b;
+	cin >> n >> a >> b;
+
+	ll cost = 0;
+	ll current;
+	cin >> current;
+
+	for (int i = 1; i < n; i++)
+	{
+		ll next;
+		cin >> next;
+		cost += min((ll)b, (next - current) * a);
+		current = next;
+	}
+
+	cout << cost << endl;
 }
