@@ -1,30 +1,31 @@
 ## 基礎
-- [ ] list
+- [x] list
     - [x] sll.cpp
-    - [ ] dll.cpp
+    - [x] dll.cpp
+        - bugfix
     - [x] cll.cpp
-    - [ ] skiplist.cpp
+        - bugfix
+    - [pending] skiplist.cpp
     - [ ] 各種問題
-- [ ] 作るけど実際は組み込みを使うもの
-    - [ ] stack
+- [x] 作るけど実際は組み込みを使うもの
+    - [x] stack
         - [x] imple
         - [ ] 問題
-    - [ ] queue
+    - [x] queue
         - [x] imple
         - [ ] 問題
     - [x] heap
     - [x] priority_queue
-    - [ ] hashmap
-- [ ] tree
-    - [ ] bst.cpp
-    - [ ] avl.cpp
+    - [x] hashmap
+- [x] tree
+    - [x] bst.cpp
+    - [pending] avl.cpp
+    - [pending] red_black_tree.cpp
 - [ ] graph
-    - [ ] 隣接行列
-    - [ ] 隣接リスト/隣接セット
-    - [ ] 全点最短経路: わ-シャルフロイド
     - [ ] 二点間最短経路: カスタマイズBFS
     - [ ] 二点間最短経路(マイナスなし): ダイクストラ
     - [ ] 二点間最短経路(マイナスあり): ベルマンフォード
+    - [ ] 全点最短経路: Floyd
     - [ ] 経路の有無: DFS/UnionFind
     - [ ] 切断点
     - [ ] 切断橋
@@ -33,14 +34,22 @@
     - [ ] 二部グラフ
         - [ ] 最大流
         - [ ] 最小コスト流
+    - [ ] Aster
 - [ ] spanning tree
     - [ ] prim
     - [ ] クラスカル
-- [ ] segment_tree
+- [x] segment_tree
+    - [x] imple
     - [ ] 例題
-- [ ] unionfind
+- [x] unionfind
 - [ ] trie
-- [ ] suffix tree 
+- [ ] suffix tree
+- [ ] radix tree
+- [ ] 文字列
+    - 回分, 接尾辞ツリー、最長共通, 最長回分, 文字列検索
+- [ ] 数学
+    - 数え上げ
+    - mod-int, べき乗, 約数, 素数判定, 素因数分解, 進数変換, 階乗, 分割数, ユークリッド互除法, 拡張ユークリッド, 組み合わせ, 順列, ベル数, 二項係数, 少列挙, スターリング数, ラグランジュ補間, 中国人余剰定理(CRT)
 
 ## 応用
 - graph
